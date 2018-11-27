@@ -17,6 +17,8 @@ RUN yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools' && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
+    yum install -y epel-release && \
+    yum install -y jq && \
     yum clean all -y
     
 RUN chown -R 1001:0 $HOME && \
