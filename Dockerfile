@@ -11,7 +11,7 @@ ENV RUST_VERSION=1.26.2 \
 COPY scl_enable /usr/local/bin/scl_enable
 
 RUN yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools' && \
-    yum install -y file make openssl-devel \
+    yum install -y file make openssl-devel && \
     yum install -y centos-release-scl-rh && \
     INSTALL_PKGS="rh-nodejs$NODE_VERSION rh-nodejs$NODE_VERSION-npm rh-nodejs$NODE_VERSION-nodejs-nodemon nss_wrapper rust-toolset-7-$RUST_VERSION" && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
