@@ -1,6 +1,6 @@
 FROM outtherelabs/jenkins-slave-rust
 
-ENV RUST_VERSION=1.26.2 \
+ENV RUST_VERSION=1.31.0 \
     NODE_VERSION=8 \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
