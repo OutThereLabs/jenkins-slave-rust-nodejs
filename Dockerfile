@@ -1,4 +1,4 @@
-FROM openshift/jenkins-slave-base-centos7
+FROM openshift/jenkins-slave-rust
 
 ENV RUST_VERSION=1.26.2 \
     NODE_VERSION=8 \
