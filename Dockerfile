@@ -1,6 +1,8 @@
-FROM outtherelabs/jenkins-slave-rust
+FROM openshift/jenkins-slave-base-centos7
 
 ENV RUST_VERSION=1.31.0 \
+    CARGO_HOME=$HOME/.cargo \
+    PATH=$HOME/.cargo/bin:$PATH
     NODE_VERSION=8 \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
