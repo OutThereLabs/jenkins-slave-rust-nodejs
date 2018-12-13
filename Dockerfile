@@ -1,6 +1,6 @@
 FROM openshift/jenkins-slave-base-centos7
 
-ENV RUST_VERSION=1.31.0 \
+ENV RUST_VERSION=1.30.0 \
     CARGO_HOME=$HOME/.cargo \
     PATH=$HOME/.cargo/bin:$PATH \
     NODE_VERSION=8 \
