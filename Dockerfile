@@ -21,7 +21,7 @@ RUN set -x && \
     yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools' && \
     yum install -y file make openssl-devel libssl-dev && \
     yum install -y centos-release-scl-rh && \
-    INSTALL_PKGS="rh-nodejs$NODE_VERSION rh-nodejs$NODE_VERSION-npm rh-nodejs$NODE_VERSION-nodejs-nodemon nss_wrapper && \
+    INSTALL_PKGS="rh-nodejs$NODE_VERSION rh-nodejs$NODE_VERSION-npm rh-nodejs$NODE_VERSION-nodejs-nodemon nss_wrapper" && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
