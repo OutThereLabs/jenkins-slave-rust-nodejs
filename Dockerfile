@@ -1,9 +1,9 @@
 FROM openshift/jenkins-slave-base-centos7
 
-ENV RUST_VERSION=1.30.0 \
+ENV RUST_VERSION=1.31.0 \
     CARGO_HOME=$HOME/.cargo \
     PATH=$HOME/.cargo/bin:$PATH \
-    NODE_VERSION=8 \
+    NODE_VERSION=10 \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
     BASH_ENV=/usr/local/bin/scl_enable \
