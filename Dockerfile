@@ -22,6 +22,10 @@ RUN set -x; \
     /tmp/rustup-init.sh -y --no-modify-path --default-toolchain $RUST_VERSION; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
+    source /usr/local/cargo/env; \
+    yum clean all -y
+    
+RUN set -ex; \
     yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools'; \
     yum install -y file make openssl-devel libssl-dev; \
     yum install -y centos-release-scl-rh; \
