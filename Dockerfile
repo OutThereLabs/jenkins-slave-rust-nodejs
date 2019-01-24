@@ -28,7 +28,8 @@ RUN set -eux; \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS; \
     rpm -V $INSTALL_PKGS; \
     yum install -y epel-release; \
-    yum install -y jq
+    yum install -y jq; \
+    yum clean all -y
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
