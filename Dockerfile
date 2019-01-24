@@ -16,7 +16,7 @@ RUN set -x && \
     yum install -y file make gcc-c++ openssl-devel postgresql-devel && \
     curl -sSf https://static.rust-lang.org/rustup.sh > /tmp/rustup.sh && \
     chmod +x /tmp/rustup.sh && \
-    /tmp/rustup.sh  --disable-sudo --yes --revision="1.30.0" && \
+    /tmp/rustup.sh  --disable-sudo --yes --revision="1.31.0" && \
     rm /tmp/rustup.sh && \
     yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools' && \
     yum install -y file make openssl-devel libssl-dev && \
