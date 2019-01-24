@@ -12,6 +12,8 @@ ENV CARGO_HOME=/usr/local/cargo \
 
 COPY scl_enable /usr/local/bin/scl_enable
 
+USER 0
+
 RUN set -x; \
     yum install -y file openssl-devel; \
     curl https://static.rust-lang.org/rustup/archive/1.16.0/x86_64-unknown-linux-gnu/rustup-init -sSf > /tmp/rustup-init.sh; \
