@@ -20,12 +20,11 @@ RUN set -eux; \
     echo "2d4ddf4e53915a23dda722608ed24e5c3f29ea1688da55aa4e98765fc6223f71 /tmp/rustup-init.sh" | sha256sum -c -; \
     chmod +x /tmp/rustup-init.sh; \
     /tmp/rustup-init.sh -y --no-modify-path --default-toolchain $RUST_VERSION; \
-    source /usr/local/cargo/env; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
     yum clean all -y
     
-RUN set -ex; \
+RUN set -eux; \
     yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools'; \
     yum install -y file make openssl-devel libssl-dev; \
     yum install -y centos-release-scl-rh; \
