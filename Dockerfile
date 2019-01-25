@@ -14,15 +14,15 @@ COPY scl_enable /usr/local/bin/scl_enable
 
 USER 0
 
-RUN set -x; \
+RUN set -eux; \
     yum install -y file openssl-devel; \
     curl https://static.rust-lang.org/rustup/archive/1.16.0/x86_64-unknown-linux-gnu/rustup-init -sSf > /tmp/rustup-init.sh; \
     echo "2d4ddf4e53915a23dda722608ed24e5c3f29ea1688da55aa4e98765fc6223f71 /tmp/rustup-init.sh" | sha256sum -c -; \
     chmod +x /tmp/rustup-init.sh; \
     /tmp/rustup-init.sh -y --no-modify-path --default-toolchain $RUST_VERSION; \
+    source /usr/local/cargo/env; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
-    source /usr/local/cargo/env; \
     yum clean all -y
     
 RUN set -ex; \
