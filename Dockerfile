@@ -36,7 +36,8 @@ RUN set -eux; \
     yum install -y jq; \
     yum clean all -y
 
-RUN chown -R 1001:1001 /opt/app-root && \
+RUN chown -R 1001:1001 $CARGO_HOME && \
+    chmod -R g+rw $CARGO_HOME && \
     chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
     
