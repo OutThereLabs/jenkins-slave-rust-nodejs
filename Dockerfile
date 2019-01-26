@@ -36,7 +36,8 @@ RUN set -eux; \
     yum install -y jq; \
     yum clean all -y
 
-RUN chown -R 1001:0 $HOME && \
+RUN chown -R 1001:1001 /opt/app-root && \
+    chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
     
 USER 1001
