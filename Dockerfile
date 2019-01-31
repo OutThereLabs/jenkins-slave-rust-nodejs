@@ -15,6 +15,9 @@ RUN set -eux; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
     yum clean all -y
+
+RUN chmod -R 1001:0 $CARGO_HOME; \
+    chmod -R g+rw $CARGO_HOME
     
 ENV NODE_VERSION=10 \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
@@ -39,7 +42,5 @@ RUN set -eux; \
 
 RUN chown -R 1001:0 $HOME; \
     chmod -R g+rw $HOME; \
-    chmod -R 1001:0 $CARGO_HOME; \
-    chmod -R g+rw $CARGO_HOME
     
 USER 1001
