@@ -2,13 +2,7 @@ FROM openshift/jenkins-slave-base-centos7
 
 ENV CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.31.1 \
-    NODE_VERSION=10 \
-    NPM_CONFIG_PREFIX=$HOME/.npm-global \
-    PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
-    BASH_ENV=/usr/local/bin/scl_enable \
-    ENV=/usr/local/bin/scl_enable \
-    PROMPT_COMMAND=". /usr/local/bin/scl_enable"
+    RUST_VERSION=1.31.1
 
 COPY scl_enable /usr/local/bin/scl_enable
 
@@ -21,6 +15,13 @@ RUN set -eux; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
     yum clean all -y
+    
+ENV NODE_VERSION=10 \
+    NPM_CONFIG_PREFIX=$HOME/.npm-global \
+    PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
+    BASH_ENV=/usr/local/bin/scl_enable \
+    ENV=/usr/local/bin/scl_enable \
+    PROMPT_COMMAND=". /usr/local/bin/scl_enable"
 
 USER 0
 
