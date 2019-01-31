@@ -21,7 +21,9 @@ RUN set -eux; \
     chmod -R a+w $CARGO_HOME; \
     rm /tmp/rustup-init.sh; \
     yum clean all -y
-    
+
+USER 0
+
 RUN set -eux; \
     yum groupinstall -y --setopt=tsflags=nodocs 'Development Tools'; \
     yum install -y file make openssl-devel libssl-dev; \
